@@ -1,6 +1,6 @@
 // ====== GANTI DI SINI ======
 const CONFIG = {
-  friendName: "Putri Anjar",
+  friendName: "my beloved bestfriend",
   // Nomor WA tujuan, format internasional tanpa "+" / spasi (contoh: 62878)
   waNumber: "6287825626001",
   waMessage:
