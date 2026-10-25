@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Happy Birthday! 🎂</title>
+  <meta name="description" content="Ada kado kecil buat kamu 💌">
+  <meta name="theme-color" content="#ff8cc6">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎁</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="floaties" id="floaties" aria-hidden="true"></div>
+
+  <!-- HOME -->
+  <main class="home" id="home">
+    <div class="bunting" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <p class="eyebrow">✨ hari ini hari spesial ✨</p>
+    <h1 class="title">
+      <span class="title-script">Happy Birthday</span>
+      <span class="title-name" id="friendName">Bestie</span>
+    </h1>
+
+    <div class="photo">
+      <div class="photo-blob"></div>
+      <div class="photo-ring"></div>
+      <img src="gb-1.png" alt="Foto kita berdua" width="408" height="612">
+      <span class="stk stk-1">🎀</span>
+      <span class="stk stk-2">🎂</span>
+      <span class="stk stk-3">💖</span>
+      <span class="stk stk-4">🌸</span>
+      <span class="stk stk-5">⭐</span>
+    </div>
+
+    <p class="sub">Psst… ada kado kecil buat kamu nih 💌</p>
+    <button class="btn" id="openGift" type="button">
+      <span class="btn-icon">🎁</span> Klaim Hadiah
+    </button>
+  </main>
+
+  <!-- STAGE: kado & voucher -->
+  <section class="stage" id="stage" hidden>
+    <div class="rays" aria-hidden="true"></div>
+
+    <div class="gift-scene" id="giftScene">
+      <p class="hint" id="giftHint">Ketuk kadonya 3x! 👆</p>
+      <button class="gift" id="gift" type="button" aria-label="Buka kado">
+        <span class="gift-lid"><span class="bow"></span></span>
+        <span class="gift-box"></span>
+      </button>
+      <div class="taps" id="taps"><i></i><i></i><i></i></div>
+    </div>
+
+    <div class="voucher-scene" id="voucherScene" hidden>
+      <img class="peek" src="gb-2.png" alt="" width="408" height="612">
+
+      <div class="voucher-wrap">
+      <div class="voucher">
+        <div class="v-side">
+          <span class="v-side-icon">📚</span>
+          <span class="v-side-text">BOOK<br>VOUCHER</span>
+        </div>
+        <div class="v-main">
+          <p class="v-label">🎀 Voucher Ulang Tahun 🎀</p>
+          <div class="scratch" id="scratchBox">
+            <div class="prize">
+              <small>senilai</small>
+              <strong>Rp50.000</strong>
+            </div>
+            <canvas id="scratch" aria-label="Gosok untuk membuka hadiah"></canvas>
+          </div>
+          <p class="v-foot">Berlaku untuk beli buku apa aja ✨</p>
+        </div>
+      </div>
+      </div>
+
+      <p class="scratch-hint" id="scratchHint">👆 Gosok kotak perak di atas!</p>
+
+      <div class="message" id="message" hidden>
+        <h2>Selamat Ulang Tahun! 🎂</h2>
+        <p id="wish"></p>
+        <a class="btn" id="waBtn" href="#" target="_blank" rel="noopener">
+          <span class="btn-icon">💬</span> Klaim Voucher
+        </a>
+        <p class="tiny">Kamu akan diarahkan ke WhatsApp 💕</p>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
