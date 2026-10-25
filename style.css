@@ -58,6 +58,25 @@ body {
   100% { transform: translateY(-125vh) translateX(0) rotate(0); }
 }
 
+/* ---------- tombol musik ---------- */
+.music-btn {
+  position: fixed;
+  top: max(14px, env(safe-area-inset-top));
+  right: 14px;
+  z-index: 60;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid var(--white);
+  background: var(--pink-400);
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 0 var(--pink-600), 0 8px 16px rgba(214, 49, 127, .3);
+  animation: spin 6s linear infinite;
+}
+.music-btn.off { animation: none; background: var(--pink-200); }
+
 /* ---------- home ---------- */
 .home {
   position: relative;
@@ -261,23 +280,71 @@ body {
   z-index: 10;
   overflow-y: auto;
   overflow-x: hidden;
-  background: radial-gradient(circle at 50% 40%, rgba(255, 243, 249, .92), rgba(255, 159, 205, .96) 70%);
-  animation: fadeIn .4s ease both;
+  background:
+    radial-gradient(circle at 50% 42%, #fff6fb 0, #ffd9ec 38%, #ffb6d9 75%, #ff9fcd 100%);
+  animation: fadeIn .5s ease both;
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+/* halaman utama disembunyikan biar nggak tembus ke belakang */
+body.staged .home,
+body.staged .floaties { visibility: hidden; }
 
+/* cahaya lembut di belakang kado/voucher */
 .rays {
   position: fixed;
   left: 50%;
-  top: 40%;
-  width: 180vmax;
-  height: 180vmax;
-  margin: -90vmax 0 0 -90vmax;
-  background: repeating-conic-gradient(rgba(255,255,255,.45) 0 10deg, transparent 10deg 20deg);
-  -webkit-mask-image: radial-gradient(circle, #000 0, transparent 55%);
-  mask-image: radial-gradient(circle, #000 0, transparent 55%);
-  animation: spin 40s linear infinite;
+  top: 42%;
+  width: 150vmax;
+  height: 150vmax;
+  margin: -75vmax 0 0 -75vmax;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255,255,255,.55), rgba(255,255,255,0) 8%,
+    rgba(255,255,255,.55) 12.5%, rgba(255,255,255,0) 20.5%,
+    rgba(255,255,255,.55) 25%, rgba(255,255,255,0) 33%,
+    rgba(255,255,255,.55) 37.5%, rgba(255,255,255,0) 45.5%,
+    rgba(255,255,255,.55) 50%, rgba(255,255,255,0) 58%,
+    rgba(255,255,255,.55) 62.5%, rgba(255,255,255,0) 70.5%,
+    rgba(255,255,255,.55) 75%, rgba(255,255,255,0) 83%,
+    rgba(255,255,255,.55) 87.5%, rgba(255,255,255,0) 95.5%,
+    rgba(255,255,255,.55));
+  -webkit-mask-image: radial-gradient(circle, #000 0, rgba(0,0,0,.6) 18%, transparent 42%);
+  mask-image: radial-gradient(circle, #000 0, rgba(0,0,0,.6) 18%, transparent 42%);
+  filter: blur(6px);
+  animation: spin 60s linear infinite;
   pointer-events: none;
+}
+.rays::after {
+  content: "";
+  position: absolute;
+  inset: 38%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.95), rgba(255,255,255,0) 70%);
+  animation: glow 3s ease-in-out infinite;
+}
+@keyframes glow {
+  0%, 100% { transform: scale(.9); opacity: .8; }
+  50% { transform: scale(1.1); opacity: 1; }
+}
+
+/* kilauan bintang kecil yang berkedip */
+.twinkles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+.twinkles span {
+  position: absolute;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255,255,255,.9), 0 0 2px var(--pink-400);
+  animation: twinkle ease-in-out infinite;
+  opacity: 0;
+}
+.twinkles span:nth-child(3n) { color: var(--pink-400); text-shadow: 0 0 6px #fff; }
+.twinkles span:nth-child(4n) { color: #ffd24d; text-shadow: 0 0 6px #fff; }
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(.3) rotate(0); }
+  50% { opacity: 1; transform: scale(1) rotate(90deg); }
 }
 
 .gift-scene {
